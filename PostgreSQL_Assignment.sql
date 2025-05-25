@@ -42,7 +42,7 @@ VALUES
 ('Sloth Bear', 'Melursus ursinus', '1791-01-01', 'Vulnerable'),
 ('Golden Langur', 'Trachypithecus geei', '1956-01-01', 'Endangered');
 
-SELECT * FROM species;
+SELECT * FROM sightings;
 
 
 INSERT INTO sightings (ranger_id,species_id,"location", sighting_time ,note)
@@ -71,6 +71,11 @@ SELECT count(*) as unique_species_count FROM(
     GROUP BY species_id
 )   ;
 
+
+-- Problem-3:Find all sightings where the location includes "Pass".
+
+SELECT * FROM sightings
+    WHERE location ILIKE '%Pass%' ;
 
 
 
