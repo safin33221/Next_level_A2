@@ -56,6 +56,12 @@ VALUES
 SELECT * FROM sightings;
 
 
+-- Problem -1 :Register a new ranger with provided data with name = 'Derek Fox' and region = 'Coastal Plains'
+
+INSERT into rangers (name,region)
+VALUES ('Derek Fox', 'Coastal Plains')
+
+
 
 
 
