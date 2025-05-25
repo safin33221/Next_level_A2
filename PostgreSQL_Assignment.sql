@@ -63,5 +63,14 @@ VALUES ('Derek Fox', 'Coastal Plains')
 
 
 
+-- problem-2:  Count unique species ever sighted.
+
+SELECT count(*) as unique_species_count FROM(
+    SELECT species_id
+    FROM sightings
+    GROUP BY species_id
+)   ;
+
+
 
 
