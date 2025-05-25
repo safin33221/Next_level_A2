@@ -16,18 +16,44 @@ CREATE TABLE species (
     discovery_date DATE NOT NULL,
     conservation_status  VARCHAR(50) DEFAULT 'Unknown'
 );
+SELECT * FROM species;
 
 CREATE TABLE sightings(
     sighting_id SERIAL PRIMARY KEY,
     ranger_id INT REFERENCES rangers(ranger_id),
     species_id INT REFERENCES species(species_id),
-    sighting_time TIMESTAMP NOT NULL,
     "location" VARCHAR(100) NOT NULL,
+    sighting_time TIMESTAMP NOT NULL,
     note TEXT
 );
 
 
+INSERT INTO rangers (name ,region)
+VALUES 
+('Diana Stone', 'Rainforest Edge'),
+('Ethan Wells', 'Savannah Plains'),
+('Fiona Brooks', 'Eastern Highlands'),
+('George Hill', 'Lakeview Territory');
 
+INSERT INTO species (common_name,scientific_name,discovery_date,conservation_status)
+VALUES 
+('African Grey Parrot', 'Psittacus erithacus', '1758-01-01', 'Endangered'),
+('Indian Cobra', 'Naja naja', '1758-01-01', 'Least Concern'),
+('Sloth Bear', 'Melursus ursinus', '1791-01-01', 'Vulnerable'),
+('Golden Langur', 'Trachypithecus geei', '1956-01-01', 'Endangered');
+
+SELECT * FROM species;
+
+
+INSERT INTO sightings (ranger_id,species_id,"location", sighting_time ,note)
+VALUES
+(1, 3, 'Rainforest Canopy Zone', '2024-05-20 06:15:00', 'Pair nesting in tree'),
+(3, 4, 'Cobra Trail Bend', '2024-05-22 14:50:00', 'Sunbathing on rocks'),
+(2, 3, 'Berry Patch Trail', '2024-05-24 11:05:00', 'Cub with mother'),
+(1, 2, 'Golden Cliff', '2024-05-25 08:00:00', 'Group moving through trees'),
+(4, 1, 'Delta Marsh', '2024-05-26 17:30:00', 'Tracks and scat found');
+
+SELECT * FROM sightings;
 
 
 
