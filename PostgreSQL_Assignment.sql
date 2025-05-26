@@ -30,10 +30,16 @@ CREATE TABLE sightings(
 
 INSERT INTO rangers (name ,region)
 VALUES 
-('Diana Stone', 'Rainforest Edge'),
-('Ethan Wells', 'Savannah Plains'),
-('Fiona Brooks', 'Eastern Highlands'),
-('George Hill', 'Lakeview Territory');
+('Hannah Reed', 'Mountain Crest'),
+('Isaac Moore', 'Desert Frontier'),
+('Julia Lane', 'Wetland Reserve'),
+('Kevin Ford', 'Northern Ridge'),
+('Lily Grant', 'Coral Coast'),
+('Marcus Doyle', 'Forest Glade'),
+('Nina Hart', 'Riverbend Zone'),
+('Oscar Blake', 'Grassland Watch'),
+('Paula Knight', 'Cliffside Range')
+
 
 INSERT INTO species (common_name,scientific_name,discovery_date,conservation_status)
 VALUES 
@@ -124,7 +130,11 @@ SELECT sighting_id ,
     WHEN EXTRACT( HOUR FROM sighting_time)<=17 THEN 'Afternoon'
     ElSE 'Evening'
     END as time_of_day
- FROM sightings
-    
+ FROM sightings;
 
-;
+
+
+ --Problem9 :  Delete rangers who have never sighted any species.
+
+ DELETE FROM rangers 
+ WHERE ranger_id NOT IN (SELECT ranger_id FROM sightings)
