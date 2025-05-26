@@ -107,3 +107,10 @@ SELECT sp.common_name,sighting_time ,r.name FROM sightings as si
     LIMIT 2;   
 
 
+-- problem 7: Update all species discovered before year 1800 to have status 'Historic'.
+
+SELECT * FROM species
+
+UPDATE species
+    SET conservation_status = 'Historic'
+    WHERE discovery_date > '1800-01-01';
