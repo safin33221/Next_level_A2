@@ -37,10 +37,17 @@ VALUES
 
 INSERT INTO species (common_name,scientific_name,discovery_date,conservation_status)
 VALUES 
-('African Grey Parrot', 'Psittacus erithacus', '1758-01-01', 'Endangered'),
-('Indian Cobra', 'Naja naja', '1758-01-01', 'Least Concern'),
-('Sloth Bear', 'Melursus ursinus', '1791-01-01', 'Vulnerable'),
-('Golden Langur', 'Trachypithecus geei', '1956-01-01', 'Endangered');
+('Snow Leopard', 'Panthera uncia', '1775-01-01', 'Vulnerable'),
+('Red Panda', 'Ailurus fulgens', '1825-01-01', 'Endangered'),
+('Bengal Tiger', 'Panthera tigris tigris', '1758-01-01', 'Endangered'),
+('Asian Elephant', 'Elephas maximus', '1758-01-01', 'Endangered'),
+('Great Indian Bustard', 'Ardeotis nigriceps', '1863-01-01', 'Critically Endangered'),
+('King Cobra', 'Ophiophagus hannah', '1836-01-01', 'Vulnerable'),
+('Ganges River Dolphin', 'Platanista gangetica', '1801-01-01', 'Endangered'),
+('Indian Pangolin', 'Manis crassicaudata', '1822-01-01', 'Endangered'),
+('Malabar Civet', 'Viverra civettina', '1862-01-01', 'Critically Endangered'),
+('Indian Star Tortoise', 'Geochelone elegans', '1831-01-01', 'Vulnerable');
+
 
 SELECT * FROM sightings;
 
@@ -82,6 +89,13 @@ SELECT name  ,count(*) as total_sightings  FROM rangers as r
 JOIN sightings as s
 ON r.ranger_id = s.ranger_id
 GROUP BY r.name
+
+
+-- Problem 5 : List species that have never been sighted.
+
+SELECT common_name FROM species as sp
+left JOIN sightings as si ON sp.species_id = si.species_id 
+WHERE si.sighting_id IS NULL;
 
 
 
