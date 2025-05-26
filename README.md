@@ -43,3 +43,14 @@ char String ভেরিয়েবল এর লেন্থ   পুরোটা
 হয়।
 উদাহরণ: SELECT * FROM sighting WHERE sighting_id = 3;
 
+
+
+৫.UPDATE  দিয়ে ডেটা কীভাবে পরিবর্তন করা হয়?
+
+উত্তর: সাধারণত টেবিলের ডেটা পরিবর্তন করার জন্য  UPDATE স্টেটমেন্ট সাথে where ক্লজ ব্যবহার করা হয় যেন সব রো আপডেট না হয়ে শুধু প্রয়োজনীয় ডাটা আপডেট  হয়।
+
+উদাহরণ: Update  species
+set conservation_status = 'Historic'
+Where discovery_date < '1800-01-01';
+
+
